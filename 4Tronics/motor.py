@@ -5,7 +5,8 @@
 # Use the arrow keys to control the direction of the Pi2Go and use the 'greater than' and 'less than'
 # keys to edit the speed!
 
-import pi2go, time
+import pi2go, timem, threading
+
 
 # Reading a button press from your keyboard, don't worry about this too much!
 import sys
@@ -46,12 +47,26 @@ speed = 30
 
 pi2go.init()
 
+class myThread (threading.Thread):
+    def __init__(self, threadID, name, counter):
+        threading.Thread.__init__(self)
+        self.threadID = threadID
+        self.name = name
+        self.counter = counter
+    def run(self):
+        print "Starting " + self.name
+        print "Exiting " + self.name
+        pi2go.controlForward(speed)
+
+thread1 = myThread(1, "Thread-1", 1)
+
 # Main body of code - this detects your key press and changes direction depending on it
 try:
     while True:
         keyp = readkey()
         if keyp == 'w' or keyp == UP:
-            pi2go.controlForward(speed)
+            #pi2go.controlForward(speed)
+            thread1.start() 
             print 'Forward', speed
         elif keyp == 's' or keyp == DOWN:
             pi2go.reverse(speed)
