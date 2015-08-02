@@ -1,3 +1,5 @@
+# Added motor control code to achieve straight forward motion.
+
 # Pi2Go basic motor sketch - for the first episode of my robot tutorial series.
 # In truth this program is very simple - the parts where it captures key presses is the daunting bit.
 # Try to work through it slowly and you'll soon understand!

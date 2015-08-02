@@ -405,7 +405,7 @@ def stepForward(speed, counts):
             runR = False
 
 # controlForward(speed)
-def stepForward(speed):
+def controlForward(speed):
     global countL, countR
     countL = 0
     countR = 0
